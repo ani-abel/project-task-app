@@ -1,0 +1,29 @@
+<div class="p-10">
+    <h3>Assign user to task</h3>
+    <form [formGroup]="addTeamMemberForm" (ngSubmit)="onSubmit()">
+      <div *ngFor="let item of addTeamMemberForm.controls['teamMembers']['controls']; let i = index;">
+        <div class="p-top-10 form-group">
+          <input placeholder="Team member {{i+1}}" 
+            [formControl]="addTeamMemberForm.controls['teamMembers']['controls'][i]" 
+            type="text"  
+            id="team-member-{{i+1}}" 
+            class="form-control" />
+        </div>
+        
+        <div class="form-group text-right">
+          <button (click)="onRemoveField('teamMembers', i)" class="btn btn-none text-danger">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="form-group text-right">
+        <button (click)="onAddField('teamMembers')" class="btn btn-none text-info">
+          <i class="fa fa-plus"></i>
+        </button>
+      </div>
+      <div class="form-group mt-2">
+        <button [disabled]="addTeamMemberForm.invalid" class="btn btn-primary w-100" type="submit">Assign</button>
+      </div>
+    </form>
+  </div>

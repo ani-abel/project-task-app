@@ -1,0 +1,109 @@
+<main class="row mt-10">
+  <div class="col-sm-12">
+      <form [formGroup]="addProjectForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+              <div class="col-sm-12 col-md-5 parent-middle-flex">
+                  <div class="row">
+                      <div class="col-md-5">
+                          <button (click)="toggleChangeTaskStatus()" class="btn-flat task-label bg-info font-16 text-white">{{taskStatus}}</button>
+                          <div class="form group p-top-10" *ngIf="canChangeTaskStatus">
+                              <select class="form-control" (change)="selectTaskStatus($event)">
+                                  <option [value]="status"
+                                      *ngFor="let status of taskStatusList">
+                                      {{status}}
+                                  </option>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="col-md-4" style="width: fit-content; font-size: 13px; color: white;">
+                          <div class="bg-grey rounded-circle position-relative"
+                          style="padding: 5px 0.8rem;">
+                              <span class="cursor-pointer" (click)="toggleUserAssignment()">
+                                  <span class="not-visible" *ngIf="assignedTeamMember">m</span>
+                                  +
+                              </span>
+                              <div *ngIf="assignedTeamMember" 
+                                  class="bg-success 
+                                  position-absolute 
+                                  start-0
+                                  translate-middle
+                                  rounded-circle
+                                  py-1 px-2" style="top : 15px; left: -20px;">
+                                  <span>{{assignedTeamMember?.initials}}</span>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="col-md-3" *ngIf="canAssignUser">
+                          <div class="form-group">
+                              <select class="form-control" (change)="assignTeamMemberToTask($event)">
+                                  <option selected>Assign User</option>
+                                  <option [value]="teamMember.id" *ngFor="let teamMember of (teamMembers$ | async)">
+                                      {{teamMember.name}}
+                                  </option>
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="col-sm-12 col-md-7">
+                      <table cellpadding="5" cellspacing="0">
+                          <tr>
+                          <th class="text-grey fw-500 text-center">CREATED</th>
+                          <th class="text-grey fw-500 text-center">TIME TRACKED</th>
+                          <th class="text-grey fw-500 text-center">TIME ESTIMATE</th>
+                          <th class="text-grey fw-500 text-center">DUE DATE</th>
+                          </tr>
+                          <tr>
+                          <td>
+                              <div class="form-group p-0">
+                                  <input [formControlName]="'created'" type="text" class="form-control" />
+                              </div>
+                          </td>
+                          <td> 
+                                  <div class="form-group">
+                                      <input [formControlName]="'timeTracked'" type="text" class="form-control" />
+                                  </div>
+                              </td>
+                              <td>
+                                  <div class="form-group">
+                                      <input [formControlName]="'timeEstimate'" type="text" class="form-control" />
+                                  </div>
+                              </td>
+                              <td> 
+                                  <div class="form-group">
+                                      <input type="text" [formControlName]="'dueDate'" class="form-control">
+                                  </div>
+                              </td>
+                          </tr>
+                      </table>
+              </div>
+          </div>
+          
+          <div class="row mt-5">
+              <div class="col-sm-12 col-md-6">
+                  <label for="wireframe" class="form-label">Wireframe</label>
+                  <textarea [formControlName]="'wireFrame'" class="form-control resize-none w-90" id="wireframe" rows="8"></textarea>
+              </div>
+              <div class="col-sm-12 col-md-3">
+                  <label for="risks" class="form-label">Risks</label>
+                  <input [formControlName]="'risks'" type="text" class="form-control" id="risks" />
+              </div>
+              <div class="col-sm-12 col-md-3">
+                  <label for="priority" class="form-label">Priority</label>
+                  <input [formControlName]="'priority'" type="text" class="form-control" id="priority" />
+              </div>
+          </div>
+
+          <div class="form-group p-top-10">
+              <button [disabled]="addProjectForm.invalid || !assignedTeamMember" 
+                  type="submit" 
+                  class="btn btn-primary">
+                  Add
+              </button>
+          </div>
+      </form>
+  </div>
+</main>
+

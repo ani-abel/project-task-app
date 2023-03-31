@@ -1,1 +1,267 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    overflow-x: hidden;
+}
+
+.not-visible {
+    visibility: hidden;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.auto-height {
+    height: auto;
+}
+
+.form-control {
+    background: #edeaea;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.p-top-10 {
+    padding-top: 10px;
+}
+
+.p-left-10 {
+    padding-left: 10px;
+}
+
+.p-right-10 {
+    padding-right: 10px;
+}
+
+.top-row-list {
+    padding: 0 30px 0 10px;
+}
+
+.font-14 {
+    font-size: 14px;
+}
+
+.font-16 {
+    font-size: 16px;
+}
+
+.underline-none {
+    text-decoration: none;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.p-left-20 {
+    padding-left: 20px;
+}
+
+.p-right-20 {
+    padding-right: 20px;
+}
+
+.p-10 {
+    padding: 10px;;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.text-grey {
+    color: #797979;
+}
+
+.bg-grey {
+    background:#797979;
+}
+
+
+.list-inline {
+    padding: 0;
+    width: 100%;
+
+    li {
+        list-style: none;
+        padding: 8px 5px;
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: inherit
+        }
+    }
+
+    li:hover {
+        background: #ddd;
+    }
+}
+
+.task-list-right {
+    width:40%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+
+    .content {
+        width: 80%;
+    }
+}
+
+.btn-flat {
+    background: inherit;
+    border: none;
+}
+
+.btn:disabled {
+    background: #ddd;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.task-label {
+    padding: 6px 15px;
+}
+
+.resize-none{
+    resize: none;
+}
+
+
+.list-with-square-label {
+    li {
+        list-style-image: url('./assets/images/icon-clear.png');
+    }
+}
+
+
+
+.w-80 {
+    width: 80% !important
+}
+
+.w-90 {
+    width: 90% !important
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 767px) {
+    .text-right-sm {
+        text-align: right;
+    }
+
+    .text-left-sm {
+        text-align: left;
+    }
+
+    .p-sm-20 {
+        padding: 20px;
+    }
+
+    .p-top-sm-5 {
+        padding-top: 5px;
+    }
+
+    .p-bottom-sm-5 {
+        padding-bottom: 5px;
+    }
+
+    .p-top-sm-20 {
+        padding-top: 20px;
+    }
+
+    .p-bottom-sm-20 {
+        padding-bottom: 20px;
+    }
+
+    .hide-sm {
+        display: none;
+    }
+
+    .content-area {
+        padding: 20px
+    }
+
+    .task-content-area {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .text-right-sm {
+        text-align: right;
+    }
+
+    .text-left-sm {
+        text-align: left;
+    }
+
+    .p-top-sm-5 {
+        padding-top: 5px;
+    }
+
+    .p-bottom-sm-5 {
+        padding-bottom: 5px;
+    }
+
+    .p-top-sm-20 {
+        padding-top: 20px;
+    }
+
+    .p-bottom-sm-20 {
+        padding-bottom: 20px;
+    }
+
+    .hide-sm {
+        display: none;
+    }
+
+    .hide-xs {
+        display: none;
+    }
+
+    .content-area {
+        padding: 20px
+    }
+
+    .task-content-area {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
